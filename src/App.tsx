@@ -29,20 +29,20 @@ const ImageCarousel = ({ images }: { images: string[] }) => {
   }, [images.length]);
 
   return (
-    <div className="relative w-full max-w-4xl mx-auto aspect-video rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white">
+    <div className="relative w-full max-w-[400px] mx-auto aspect-[9/16] rounded-[2rem] overflow-hidden shadow-2xl border-4 border-white">
       <AnimatePresence mode="wait">
         <motion.img
           key={index}
           src={images[index]}
-          initial={{ opacity: 0, x: 50 }}
-          animate={{ opacity: 1, x: 0 }}
-          exit={{ opacity: 0, x: -50 }}
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 1, scale: 1 }}
+          exit={{ opacity: 0, scale: 0.9 }}
           transition={{ duration: 0.5 }}
           className="w-full h-full object-cover"
           referrerPolicy="no-referrer"
         />
       </AnimatePresence>
-      <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2">
+      <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
         {images.map((_, i) => (
           <div
             key={i}
